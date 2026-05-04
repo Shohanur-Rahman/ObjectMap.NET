@@ -9,6 +9,23 @@ A lightweight and high-performance object mapper for .NET! [ObjectMap.NET](https
 
 ---
 
+## Why use this over AutoMapper?
+
+Use **ObjectMap.NET** when you want a **small, predictable mapper** for typical CRUD-style DTO ↔ entity transformations.
+
+- **Lightweight & minimal API**: `CreateMap`, `ReverseMap`, `ForMember`, and `Map` cover most common cases.
+- **Explicit mapping pairs**: encourages registering only the maps you use; fewer surprises from “magic” conventions.
+- **Compiled mapping + caching**: good performance for repeated mappings in services.
+- **Practical defaults for common mismatches**: supports common scalar differences (for example **string ↔ Guid**, **enum ↔ integral**, **string ↔ int**, **decimal → double**) and element-wise collection mapping when element maps exist.
+- **Map into existing entities**: `Map(dto, entity)` works for update flows; collection/nested mapping respects `Ignore()` and explicit `ForMember` configuration.
+
+When you should prefer **AutoMapper**:
+
+- You need **true LINQ-to-SQL projection** (`ProjectTo` that EF can translate).
+- You rely on advanced features like rich conventions, flattening/unflattening, resolvers, conditions, `AfterMap/BeforeMap`, etc.
+
+---
+
 ## Installation
 
 **NuGet (when published):**
@@ -196,6 +213,18 @@ Nested mapping tracks **`visitedObjects`** by reference to reduce infinite recur
 
 - **Proxies:** Nested mapping resolves **`Castle.DynamicProxy`** proxies by mapping from the **declared** property type when possible; proxies may be normalized to base entity types for **`GetMap`**.
 - **Tracked entities:** Prefer **`Map(dto, entity)`** for updates instead of creating a new entity and attaching.
+
+---
+
+## Limitations
+
+- **Explicit map registration required**: you must call `CreateMap<TSource, TDestination>()` for each pair you map. There is no assembly scanning / auto-discovery.
+- **Name-based mapping only**: automatic mapping matches properties by the **same name**. No flattening/unflattening, no naming conventions (snake_case ↔ PascalCase), no member renames unless you use `ForMember`.
+- **Limited scalar conversions**: only a small set of scalar coercions are built-in (for example **string ↔ Guid**, **enum ↔ integral**, **string ↔ int**, **bool → string**, **decimal → double**). Anything else requires a `ForMember(... MapFrom ...)`.
+- **Collections are replaced, not merged**: when mapping a collection property, the mapper creates a new `List<TDestElement>` and assigns it to the destination property. It does not diff/merge by key (common EF “update children” scenario).
+- **`ProjectTo` is not SQL projection**: `ProjectTo` is implemented as `Select(x => mapper.Map<...>(x))`. EF Core will not translate the mapper’s compiled delegate to SQL; for real SQL projection prefer manual `Select`.
+- **Only writable public properties**: mapping targets public settable properties. Fields and non-settable members are ignored.
+- **Runtime failures may be hard to see**: some nested/collection mapping paths are defensive and may write to `Debug` instead of throwing; ensure you have logging/telemetry around mapping when debugging production issues.
 
 ---
 
