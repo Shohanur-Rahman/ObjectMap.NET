@@ -1,6 +1,6 @@
 # ObjectMap.NET
 
-A lightweight and high-performance object mapper for .NET!
+A lightweight and high-performance object mapper for .NET! [ObjectMap.NET](https://www.nuget.org/packages/ObjectMap.NET/)
 
 **ObjectMap.NET** (`PackageId`: `ObjectMap.NET`) is a compact convention-based object mapper for modern .NET. The implementation lives in the `SimpleMapper` namespaces. It is designed for **explicit maps** (no surprise magic between unrelated types) with optional **per-member** configuration.
 
