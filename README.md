@@ -26,6 +26,19 @@ When you should prefer **AutoMapper**:
 
 ---
 
+## Performance Benchmarks
+
+The following benchmarks were executed on .NET 10.0 using BenchmarkDotNet:
+
+| Method | Mean (Time) | Allocated (Memory) |
+| :--- | :--- | :--- |
+| **Map flat POCO to DTO** | **248.4 ns** | **1.05 KB** |
+| **Map nested graph** | **1,532.9 ns** | **4.05 KB** |
+| **Map List (256 items)** | **75,243.0 ns** | **228.14 KB** |
+| **Map into existing instance** | **644.1 ns** | **1.84 KB** |
+
+![Benchmarks](benchmark.png)
+
 ## Installation
 
 **NuGet (when published):**
