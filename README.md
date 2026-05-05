@@ -9,36 +9,6 @@ A lightweight and high-performance object mapper for .NET! [ObjectMap.NET](https
 
 ---
 
-## Why use this over AutoMapper?
-
-Use **ObjectMap.NET** when you want a **small, predictable mapper** for typical CRUD-style DTO ↔ entity transformations.
-
-- **Lightweight & minimal API**: `CreateMap`, `ReverseMap`, `ForMember`, and `Map` cover most common cases.
-- **Explicit mapping pairs**: encourages registering only the maps you use; fewer surprises from “magic” conventions.
-- **Compiled mapping + caching**: good performance for repeated mappings in services.
-- **Practical defaults for common mismatches**: supports common scalar differences (for example **string ↔ Guid**, **enum ↔ integral**, **string ↔ int**, **decimal → double**) and element-wise collection mapping when element maps exist.
-- **Map into existing entities**: `Map(dto, entity)` works for update flows; collection/nested mapping respects `Ignore()` and explicit `ForMember` configuration.
-
-When you should prefer **AutoMapper**:
-
-- You need **true LINQ-to-SQL projection** (`ProjectTo` that EF can translate).
-- You rely on advanced features like rich conventions, flattening/unflattening, resolvers, conditions, `AfterMap/BeforeMap`, etc.
-
----
-
-## Performance Benchmarks
-
-The following benchmarks were executed on .NET 10.0 using BenchmarkDotNet:
-
-| Method | Mean (Time) | Allocated (Memory) |
-| :--- | :--- | :--- |
-| **Map flat POCO to DTO** | **248.4 ns** | **1.05 KB** |
-| **Map nested graph** | **1,532.9 ns** | **4.05 KB** |
-| **Map List (256 items)** | **75,243.0 ns** | **228.14 KB** |
-| **Map into existing instance** | **644.1 ns** | **1.84 KB** |
-
-![Benchmarks](benchmark.png)
-
 ## Installation
 
 **NuGet (when published):**
@@ -226,6 +196,39 @@ Nested mapping tracks **`visitedObjects`** by reference to reduce infinite recur
 
 - **Proxies:** Nested mapping resolves **`Castle.DynamicProxy`** proxies by mapping from the **declared** property type when possible; proxies may be normalized to base entity types for **`GetMap`**.
 - **Tracked entities:** Prefer **`Map(dto, entity)`** for updates instead of creating a new entity and attaching.
+
+---
+
+
+## Why use this over AutoMapper?
+
+Use **ObjectMap.NET** when you want a **small, predictable mapper** for typical CRUD-style DTO ↔ entity transformations.
+
+- **Lightweight & minimal API**: `CreateMap`, `ReverseMap`, `ForMember`, and `Map` cover most common cases.
+- **Explicit mapping pairs**: encourages registering only the maps you use; fewer surprises from “magic” conventions.
+- **Compiled mapping + caching**: good performance for repeated mappings in services.
+- **Practical defaults for common mismatches**: supports common scalar differences (for example **string ↔ Guid**, **enum ↔ integral**, **string ↔ int**, **decimal → double**) and element-wise collection mapping when element maps exist.
+- **Map into existing entities**: `Map(dto, entity)` works for update flows; collection/nested mapping respects `Ignore()` and explicit `ForMember` configuration.
+
+When you should prefer **AutoMapper**:
+
+- You need **true LINQ-to-SQL projection** (`ProjectTo` that EF can translate).
+- You rely on advanced features like rich conventions, flattening/unflattening, resolvers, conditions, `AfterMap/BeforeMap`, etc.
+
+---
+
+## Performance Benchmarks
+
+The following benchmarks were executed on .NET 10.0 using BenchmarkDotNet:
+
+| Method | Mean (Time) | Allocated (Memory) |
+| :--- | :--- | :--- |
+| **Map flat POCO to DTO** | **248.4 ns** | **1.05 KB** |
+| **Map nested graph** | **1,532.9 ns** | **4.05 KB** |
+| **Map List (256 items)** | **75,243.0 ns** | **228.14 KB** |
+| **Map into existing instance** | **644.1 ns** | **1.84 KB** |
+
+![Benchmarks](benchmark.png)
 
 ---
 
