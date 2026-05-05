@@ -1,0 +1,244 @@
+// Validating benchmarks:
+// ***** BenchmarkRunner: Start   *****
+// ***** Found 4 benchmark(s) in total *****
+// ***** Building 1 exe(s) in Parallel: Start   *****
+// start dotnet  restore --nodeReuse:false /p:UseSharedCompilation=false /p:Deterministic=true /p:Optimize=true /p:ArtifactsPath="E:\MyGit\ObjectMap.NET\PerformanceTest\bin\Release\net10.0\PerformanceTest-Dry-1/" /p:OutDir="E:\MyGit\ObjectMap.NET\PerformanceTest\bin\Release\net10.0\PerformanceTest-Dry-1\bin\Release\net10.0/" /p:OutputPath="E:\MyGit\ObjectMap.NET\PerformanceTest\bin\Release\net10.0\PerformanceTest-Dry-1\bin\Release\net10.0/" /p:PublishDir="E:\MyGit\ObjectMap.NET\PerformanceTest\bin\Release\net10.0\PerformanceTest-Dry-1\publish/" in E:\MyGit\ObjectMap.NET\PerformanceTest\bin\Release\net10.0\PerformanceTest-Dry-1
+// command took 4.05 sec and exited with 0
+// start dotnet  build -c Release --no-restore --nodeReuse:false /p:UseSharedCompilation=false /p:Deterministic=true /p:Optimize=true /p:ArtifactsPath="E:\MyGit\ObjectMap.NET\PerformanceTest\bin\Release\net10.0\PerformanceTest-Dry-1/" /p:OutDir="E:\MyGit\ObjectMap.NET\PerformanceTest\bin\Release\net10.0\PerformanceTest-Dry-1\bin\Release\net10.0/" /p:OutputPath="E:\MyGit\ObjectMap.NET\PerformanceTest\bin\Release\net10.0\PerformanceTest-Dry-1\bin\Release\net10.0/" /p:PublishDir="E:\MyGit\ObjectMap.NET\PerformanceTest\bin\Release\net10.0\PerformanceTest-Dry-1\publish/" --output "E:\MyGit\ObjectMap.NET\PerformanceTest\bin\Release\net10.0\PerformanceTest-Dry-1\bin\Release\net10.0/" in E:\MyGit\ObjectMap.NET\PerformanceTest\bin\Release\net10.0\PerformanceTest-Dry-1
+// command took 10.47 sec and exited with 0
+// ***** Done, took 00:00:15 (15.36 sec)   *****
+// Found 4 benchmarks:
+//   SimpleMapperBenchmarks.'Map flat POCO → DTO': Dry(IterationCount=1, LaunchCount=1, RunStrategy=ColdStart, UnrollFactor=1, WarmupCount=1)
+//   SimpleMapperBenchmarks.'Map nested graph (order + customer + lines)': Dry(IterationCount=1, LaunchCount=1, RunStrategy=ColdStart, UnrollFactor=1, WarmupCount=1)
+//   SimpleMapperBenchmarks.'Map List<PersonSource> → List<PersonDto> (256 items)': Dry(IterationCount=1, LaunchCount=1, RunStrategy=ColdStart, UnrollFactor=1, WarmupCount=1)
+//   SimpleMapperBenchmarks.'Map into existing destination instance': Dry(IterationCount=1, LaunchCount=1, RunStrategy=ColdStart, UnrollFactor=1, WarmupCount=1)
+
+Setup power plan (GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c FriendlyName: High performance)
+// **************************
+// Benchmark: SimpleMapperBenchmarks.'Map flat POCO → DTO': Dry(IterationCount=1, LaunchCount=1, RunStrategy=ColdStart, UnrollFactor=1, WarmupCount=1)
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet PerformanceTest-Dry-1.dll --anonymousPipes 1228 1328 --benchmarkName PerformanceTest.SimpleMapperBenchmarks.Map_FlatPoco --job Dry --benchmarkId 0 in E:\MyGit\ObjectMap.NET\PerformanceTest\bin\Release\net10.0\PerformanceTest-Dry-1\bin\Release\net10.0
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.7 (10.0.7, 10.0.726.21808), X64 RyuJIT x86-64-v3
+// GC=Concurrent Workstation
+// HardwareIntrinsics=AVX2+BMI1+BMI2+F16C+FMA+LZCNT+MOVBE,AVX,SSE3+SSSE3+SSE4.1+SSE4.2+POPCNT,X86Base+SSE+SSE2,AES+PCLMUL,AvxVnni,SERIALIZE VectorSize=256
+// Job: Dry(IterationCount=1, LaunchCount=1, RunStrategy=ColdStart, UnrollFactor=1, WarmupCount=1)
+
+// BeforeActualRun
+WorkloadActual   1: 1 op, 17169600.00 ns, 17.1696 ms/op
+
+// AfterActualRun
+WorkloadResult   1: 1 op, 17169600.00 ns, 17.1696 ms/op
+// GC:  0 0 0 8528 1
+// Threading:  0 0 1
+
+// AfterAll
+// Benchmark Process 3052 has exited with code 0.
+
+Mean = 17.170 ms, StdErr = 0.000 ms (0.00%), N = 1, StdDev = 0.000 ms
+Min = 17.170 ms, Q1 = 17.170 ms, Median = 17.170 ms, Q3 = 17.170 ms, Max = 17.170 ms
+IQR = 0.000 ms, LowerFence = 17.170 ms, UpperFence = 17.170 ms
+ConfidenceInterval = [NaN ms; NaN ms] (CI 99.9%), Margin = NaN ms (NaN% of Mean)
+Skewness = NaN, Kurtosis = NaN, MValue = 2
+
+// ** Remained 3 (75.0%) benchmark(s) to run. Estimated finish 2026-05-05 7:52 (0h 0m from now) **
+Setup power plan (GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c FriendlyName: High performance)
+// **************************
+// Benchmark: SimpleMapperBenchmarks.'Map nested graph (order + customer + lines)': Dry(IterationCount=1, LaunchCount=1, RunStrategy=ColdStart, UnrollFactor=1, WarmupCount=1)
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet PerformanceTest-Dry-1.dll --anonymousPipes 1324 1332 --benchmarkName PerformanceTest.SimpleMapperBenchmarks.Map_NestedGraph --job Dry --benchmarkId 1 in E:\MyGit\ObjectMap.NET\PerformanceTest\bin\Release\net10.0\PerformanceTest-Dry-1\bin\Release\net10.0
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.7 (10.0.7, 10.0.726.21808), X64 RyuJIT x86-64-v3
+// GC=Concurrent Workstation
+// HardwareIntrinsics=AVX2+BMI1+BMI2+F16C+FMA+LZCNT+MOVBE,AVX,SSE3+SSSE3+SSE4.1+SSE4.2+POPCNT,X86Base+SSE+SSE2,AES+PCLMUL,AvxVnni,SERIALIZE VectorSize=256
+// Job: Dry(IterationCount=1, LaunchCount=1, RunStrategy=ColdStart, UnrollFactor=1, WarmupCount=1)
+
+// BeforeActualRun
+WorkloadActual   1: 1 op, 16936400.00 ns, 16.9364 ms/op
+
+// AfterActualRun
+WorkloadResult   1: 1 op, 16936400.00 ns, 16.9364 ms/op
+// GC:  0 0 0 27496 1
+// Threading:  0 0 1
+
+// AfterAll
+// Benchmark Process 5936 has exited with code 0.
+
+Mean = 16.936 ms, StdErr = 0.000 ms (0.00%), N = 1, StdDev = 0.000 ms
+Min = 16.936 ms, Q1 = 16.936 ms, Median = 16.936 ms, Q3 = 16.936 ms, Max = 16.936 ms
+IQR = 0.000 ms, LowerFence = 16.936 ms, UpperFence = 16.936 ms
+ConfidenceInterval = [NaN ms; NaN ms] (CI 99.9%), Margin = NaN ms (NaN% of Mean)
+Skewness = NaN, Kurtosis = NaN, MValue = 2
+
+// ** Remained 2 (50.0%) benchmark(s) to run. Estimated finish 2026-05-05 7:52 (0h 0m from now) **
+Setup power plan (GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c FriendlyName: High performance)
+// **************************
+// Benchmark: SimpleMapperBenchmarks.'Map List<PersonSource> → List<PersonDto> (256 items)': Dry(IterationCount=1, LaunchCount=1, RunStrategy=ColdStart, UnrollFactor=1, WarmupCount=1)
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet PerformanceTest-Dry-1.dll --anonymousPipes 1384 1380 --benchmarkName PerformanceTest.SimpleMapperBenchmarks.Map_Collection --job Dry --benchmarkId 2 in E:\MyGit\ObjectMap.NET\PerformanceTest\bin\Release\net10.0\PerformanceTest-Dry-1\bin\Release\net10.0
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.7 (10.0.7, 10.0.726.21808), X64 RyuJIT x86-64-v3
+// GC=Concurrent Workstation
+// HardwareIntrinsics=AVX2+BMI1+BMI2+F16C+FMA+LZCNT+MOVBE,AVX,SSE3+SSSE3+SSE4.1+SSE4.2+POPCNT,X86Base+SSE+SSE2,AES+PCLMUL,AvxVnni,SERIALIZE VectorSize=256
+// Job: Dry(IterationCount=1, LaunchCount=1, RunStrategy=ColdStart, UnrollFactor=1, WarmupCount=1)
+
+// BeforeActualRun
+WorkloadActual   1: 1 op, 16193100.00 ns, 16.1931 ms/op
+
+// AfterActualRun
+WorkloadResult   1: 1 op, 16193100.00 ns, 16.1931 ms/op
+// GC:  0 0 0 233896 1
+// Threading:  0 0 1
+
+// AfterAll
+// Benchmark Process 13424 has exited with code 0.
+
+Mean = 16.193 ms, StdErr = 0.000 ms (0.00%), N = 1, StdDev = 0.000 ms
+Min = 16.193 ms, Q1 = 16.193 ms, Median = 16.193 ms, Q3 = 16.193 ms, Max = 16.193 ms
+IQR = 0.000 ms, LowerFence = 16.193 ms, UpperFence = 16.193 ms
+ConfidenceInterval = [NaN ms; NaN ms] (CI 99.9%), Margin = NaN ms (NaN% of Mean)
+Skewness = NaN, Kurtosis = NaN, MValue = 2
+
+// ** Remained 1 (25.0%) benchmark(s) to run. Estimated finish 2026-05-05 7:52 (0h 0m from now) **
+Setup power plan (GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c FriendlyName: High performance)
+// **************************
+// Benchmark: SimpleMapperBenchmarks.'Map into existing destination instance': Dry(IterationCount=1, LaunchCount=1, RunStrategy=ColdStart, UnrollFactor=1, WarmupCount=1)
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet PerformanceTest-Dry-1.dll --anonymousPipes 1400 1412 --benchmarkName PerformanceTest.SimpleMapperBenchmarks.Map_IntoExisting --job Dry --benchmarkId 3 in E:\MyGit\ObjectMap.NET\PerformanceTest\bin\Release\net10.0\PerformanceTest-Dry-1\bin\Release\net10.0
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.7 (10.0.7, 10.0.726.21808), X64 RyuJIT x86-64-v3
+// GC=Concurrent Workstation
+// HardwareIntrinsics=AVX2+BMI1+BMI2+F16C+FMA+LZCNT+MOVBE,AVX,SSE3+SSSE3+SSE4.1+SSE4.2+POPCNT,X86Base+SSE+SSE2,AES+PCLMUL,AvxVnni,SERIALIZE VectorSize=256
+// Job: Dry(IterationCount=1, LaunchCount=1, RunStrategy=ColdStart, UnrollFactor=1, WarmupCount=1)
+
+// BeforeActualRun
+WorkloadActual   1: 1 op, 4034400.00 ns, 4.0344 ms/op
+
+// AfterActualRun
+WorkloadResult   1: 1 op, 4034400.00 ns, 4.0344 ms/op
+// GC:  0 0 0 20400 1
+// Threading:  0 0 1
+
+// AfterAll
+// Benchmark Process 26580 has exited with code 0.
+
+Mean = 4.034 ms, StdErr = 0.000 ms (0.00%), N = 1, StdDev = 0.000 ms
+Min = 4.034 ms, Q1 = 4.034 ms, Median = 4.034 ms, Q3 = 4.034 ms, Max = 4.034 ms
+IQR = 0.000 ms, LowerFence = 4.034 ms, UpperFence = 4.034 ms
+ConfidenceInterval = [NaN ms; NaN ms] (CI 99.9%), Margin = NaN ms (NaN% of Mean)
+Skewness = NaN, Kurtosis = NaN, MValue = 2
+
+// ** Remained 0 (0.0%) benchmark(s) to run. Estimated finish 2026-05-05 7:52 (0h 0m from now) **
+Successfully reverted power plan (GUID: 381b4222-f694-41f0-9685-ff5bb260df2e FriendlyName: Balanced)
+// ***** BenchmarkRunner: Finish  *****
+
+// * Export *
+  BenchmarkDotNet.Artifacts\results\PerformanceTest.SimpleMapperBenchmarks-report.csv
+  BenchmarkDotNet.Artifacts\results\PerformanceTest.SimpleMapperBenchmarks-report-github.md
+  BenchmarkDotNet.Artifacts\results\PerformanceTest.SimpleMapperBenchmarks-report.html
+
+// * Detailed results *
+SimpleMapperBenchmarks.'Map flat POCO → DTO': Dry(IterationCount=1, LaunchCount=1, RunStrategy=ColdStart, UnrollFactor=1, WarmupCount=1)
+Runtime = .NET 10.0.7 (10.0.7, 10.0.726.21808), X64 RyuJIT x86-64-v3; GC = Concurrent Workstation
+Mean = 17.170 ms, StdErr = 0.000 ms (0.00%), N = 1, StdDev = 0.000 ms
+Min = 17.170 ms, Q1 = 17.170 ms, Median = 17.170 ms, Q3 = 17.170 ms, Max = 17.170 ms
+IQR = 0.000 ms, LowerFence = 17.170 ms, UpperFence = 17.170 ms
+ConfidenceInterval = [NaN ms; NaN ms] (CI 99.9%), Margin = NaN ms (NaN% of Mean)
+Skewness = NaN, Kurtosis = NaN, MValue = 2
+-------------------- Histogram --------------------
+[17.170 ms ; 17.170 ms) | @
+---------------------------------------------------
+
+SimpleMapperBenchmarks.'Map nested graph (order + customer + lines)': Dry(IterationCount=1, LaunchCount=1, RunStrategy=ColdStart, UnrollFactor=1, WarmupCount=1)
+Runtime = .NET 10.0.7 (10.0.7, 10.0.726.21808), X64 RyuJIT x86-64-v3; GC = Concurrent Workstation
+Mean = 16.936 ms, StdErr = 0.000 ms (0.00%), N = 1, StdDev = 0.000 ms
+Min = 16.936 ms, Q1 = 16.936 ms, Median = 16.936 ms, Q3 = 16.936 ms, Max = 16.936 ms
+IQR = 0.000 ms, LowerFence = 16.936 ms, UpperFence = 16.936 ms
+ConfidenceInterval = [NaN ms; NaN ms] (CI 99.9%), Margin = NaN ms (NaN% of Mean)
+Skewness = NaN, Kurtosis = NaN, MValue = 2
+-------------------- Histogram --------------------
+[16.936 ms ; 16.936 ms) | @
+---------------------------------------------------
+
+SimpleMapperBenchmarks.'Map List<PersonSource> → List<PersonDto> (256 items)': Dry(IterationCount=1, LaunchCount=1, RunStrategy=ColdStart, UnrollFactor=1, WarmupCount=1)
+Runtime = .NET 10.0.7 (10.0.7, 10.0.726.21808), X64 RyuJIT x86-64-v3; GC = Concurrent Workstation
+Mean = 16.193 ms, StdErr = 0.000 ms (0.00%), N = 1, StdDev = 0.000 ms
+Min = 16.193 ms, Q1 = 16.193 ms, Median = 16.193 ms, Q3 = 16.193 ms, Max = 16.193 ms
+IQR = 0.000 ms, LowerFence = 16.193 ms, UpperFence = 16.193 ms
+ConfidenceInterval = [NaN ms; NaN ms] (CI 99.9%), Margin = NaN ms (NaN% of Mean)
+Skewness = NaN, Kurtosis = NaN, MValue = 2
+-------------------- Histogram --------------------
+[16.193 ms ; 16.193 ms) | @
+---------------------------------------------------
+
+SimpleMapperBenchmarks.'Map into existing destination instance': Dry(IterationCount=1, LaunchCount=1, RunStrategy=ColdStart, UnrollFactor=1, WarmupCount=1)
+Runtime = .NET 10.0.7 (10.0.7, 10.0.726.21808), X64 RyuJIT x86-64-v3; GC = Concurrent Workstation
+Mean = 4.034 ms, StdErr = 0.000 ms (0.00%), N = 1, StdDev = 0.000 ms
+Min = 4.034 ms, Q1 = 4.034 ms, Median = 4.034 ms, Q3 = 4.034 ms, Max = 4.034 ms
+IQR = 0.000 ms, LowerFence = 4.034 ms, UpperFence = 4.034 ms
+ConfidenceInterval = [NaN ms; NaN ms] (CI 99.9%), Margin = NaN ms (NaN% of Mean)
+Skewness = NaN, Kurtosis = NaN, MValue = 2
+-------------------- Histogram --------------------
+[4.034 ms ; 4.034 ms) | @
+---------------------------------------------------
+
+// * Summary *
+
+BenchmarkDotNet v0.15.8, Windows 11 (10.0.26200.8246/25H2/2025Update/HudsonValley2)
+13th Gen Intel Core i3-1315U 1.20GHz, 1 CPU, 8 logical and 6 physical cores
+.NET SDK 10.0.203
+  [Host] : .NET 10.0.7 (10.0.7, 10.0.726.21808), X64 RyuJIT x86-64-v3
+  Dry    : .NET 10.0.7 (10.0.7, 10.0.726.21808), X64 RyuJIT x86-64-v3
+
+Job=Dry  IterationCount=1  LaunchCount=1  
+RunStrategy=ColdStart  UnrollFactor=1  WarmupCount=1  
+Error=NA  
+
+| Method                                                 | Mean      | Allocated |
+|------------------------------------------------------- |----------:|----------:|
+| 'Map flat POCO → DTO'                                  | 17.170 ms |   8.33 KB |
+| 'Map nested graph (order + customer + lines)'          | 16.936 ms |  26.85 KB |
+| 'Map List<PersonSource> → List<PersonDto> (256 items)' | 16.193 ms | 228.41 KB |
+| 'Map into existing destination instance'               |  4.034 ms |  19.92 KB |
+
+// * Warnings *
+MinIterationTime
+  SimpleMapperBenchmarks.'Map flat POCO → DTO': Dry                                  -> The minimum observed iteration time is 17.17ms which is very small. It's recommended to increase it to at least 100ms using more operations.
+  SimpleMapperBenchmarks.'Map nested graph (order + customer + lines)': Dry          -> The minimum observed iteration time is 16.936ms which is very small. It's recommended to increase it to at least 100ms using more operations.
+  SimpleMapperBenchmarks.'Map List<PersonSource> → List<PersonDto> (256 items)': Dry -> The minimum observed iteration time is 16.193ms which is very small. It's recommended to increase it to at least 100ms using more operations.
+  SimpleMapperBenchmarks.'Map into existing destination instance': Dry               -> The minimum observed iteration time is 4.034ms which is very small. It's recommended to increase it to at least 100ms using more operations.
+
+// * Hints *
+HideColumnsAnalyser
+  Summary -> Hidden columns: Error
+
+// * Legends *
+  Mean      : Arithmetic mean of all measurements
+  Allocated : Allocated memory per single operation (managed only, inclusive, 1KB = 1024B)
+  1 ms      : 1 Millisecond (0.001 sec)
+
+// * Diagnostic Output - MemoryDiagnoser *
+
+
+// ***** BenchmarkRunner: End *****
+Run time: 00:00:03 (3.28 sec), executed benchmarks: 4
+
+Global total time: 00:00:20 (20 sec), executed benchmarks: 4
+// * Artifacts cleanup *
+Artifacts cleanup is finished
